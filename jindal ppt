@@ -1,0 +1,27 @@
+from pptx import Presentation
+
+# Create a new PowerPoint presentation
+presentation = Presentation()
+
+# Add a title slide
+title_slide_layout = presentation.slide_layouts[0]
+slide = presentation.slides.add_slide(title_slide_layout)
+title = slide.shapes.title
+title.text = "Jindalx PPT"
+
+# Add a slide with bullet points
+bullet_slide_layout = presentation.slide_layouts[1]
+slide = presentation.slides.add_slide(bullet_slide_layout)
+shapes = slide.shapes
+
+# Add bullet points
+bullet_point = shapes.placeholders[1].text_frame.add_paragraph()
+bullet_point.text = "Item 1"
+bullet_point.level = 1
+
+bullet_point = shapes.placeholders[1].text_frame.add_paragraph()
+bullet_point.text = "Item 2"
+bullet_point.level = 1
+
+# Save the presentation
+presentation.save("jindalx_ppt.pptx")
